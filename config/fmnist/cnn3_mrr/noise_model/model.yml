@@ -1,0 +1,12 @@
+noise:
+  PV_schedule: 'linear'
+  TD_scheduler: 'linear'
+  Tmax: 100
+  TD_Tmax: 100
+  
+  inter_h: 60
+  interv_v: 200
+
+  test_PV: False
+  test_TD: False
+  test_CT: False

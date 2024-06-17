@@ -1,0 +1,74 @@
+criterion:
+  name: ce
+
+optimizer:
+  name: adamw
+  lr: 0.1
+  weight_decay: 0.01
+
+scheduler:
+  name: exp
+  lr_gamma: 0.99
+  lr_min: 0.0245
+
+run:
+  experiment: "fmnist_cnn3_motivation"
+  cali_n_epochs: 400
+  map_n_epochs: 540
+  batch_size: 32
+
+quantize:
+  weight_bit: 8
+
+noise:
+  phase_bias: 1
+  set_PV: False
+  set_GTD: False
+  set_Crosstalk: False
+  noise_std_std: 0      #[0, 100, 200, 300, 400, 500, 600, 700, 800, 900]
+  noise_std_mean: 0.    #[0., 0.1, 0.2]
+  PV_scheduler: 'high'
+  noise_scenario_src: 'edge'
+  noise_scenario_tgt: 'corner'
+  delta_T: 0           #[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  TD_schedule: 'linear'
+  gamma_noise_std: 0.005
+  crosstalk_factor: 0.  #3.7
+  inter_h: 60.
+  inter_v: 200.
+  sparsity: 1.0
+  random_state: 42
+
+  sparsity_mode: 'uniform'
+  salience_mode: 'first_grad'
+  criterion: 'mae'
+  average_time: 5
+
+  map_num_step: 200
+  lr: 0.01
+
+ic: # identity calibration
+  alg: zcd # [zgd, ztp, zcd]
+  adaptive: 0
+  best_record: 1
+
+pm: # parallel mapping
+  alg: zcd # [zgd, ztp, zcd]
+  adaptive: 0
+  best_record: 1
+  ideal_I: 1
+
+checkpoint:
+  checkpoint_dir: "fmnist/cnn3_mrr/validation_noise"
+  model_comment: ""
+  resume: 1
+  no_linear: 0
+  restore_checkpoint: ./checkpoint/SparseBP_MRR_CNN_FMNIST_wb-32_ib-32_ideal_acc-92.78_epoch-97.pt
+
+model:
+  name: "SparseBP_MRR_CNN"
+  mode: "weight"
+
+debug:
+  verbose: 1
+
