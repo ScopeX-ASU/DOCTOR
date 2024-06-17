@@ -2,18 +2,18 @@
 
 By [Haotian Lu](https://github.com/TRIGGERONE), Sanmitra Banerjee and [Jiaqi Gu](https://github.com/JeremieMelo).
 
-This repo is the official implementation of "[DOCTOR: Dynamic On-Chip Remediation Against Temporally-Drifting Thermal Variations Toward Self-Corrected Photonic Tensor Accelerators](https://arxiv.org/abs/2403.02688)".
+This repo is the official implementation of "[DOCTOR: Dynamic On-Chip Remediation Against Temporally-Drifting Thermal Variations Toward Self-Corrected Photonic Tensor Accelerators](https://arxiv.org/abs/2403.02688)", IEEE Journal of Lightwave Technology, Jun. 2024.
 
 # Introduction
 **DOCTOR** is a lightweight dynamic ONN on-chip remediation framework to provide *adaptive* and *in-situ* accuracy recovery against temporally drifting noises.
-**DOCTOR** adopts a smart monitor to trigger remediation, then performs training-free *in-situ* sparse calibration to efficiently tune the noisy weights with mininal overhead.
-A Tile-remapping strategy is integrated into **DOCTOR** to leverage non-uniform and time-variant noise distributions to boost reliability by optimaly remapping workloads with higher importance to tensor cores and devices with low noise level.
-**DOCTOR** guarantees sustained performance under drifting variations with **34%** higher accuracy and **2-3 orders-of-magnitude lower overhead** compared with state-of-the-art on-chip training methods, when benchmarked on various models and learning tasks.
-This synergistic framework is the *first* dynamic, in-situ and training-free solution that ensures *continued reliability* with *minimal overhead* and further enables self-corrected photonic neural accelerators with unprecedented reliability in real-world, dynamic deployment scenarios.
-
+![teaser](figures/teaser.png)
+**DOCTOR** adopts a smart monitor to trigger remediation, then performs training-free *in-situ* sparse calibration to efficiently tune the noisy weights with minimal overhead.
+A tile-remapping strategy is integrated into **DOCTOR** to leverage non-uniform and time-variant noise distributions and boost reliability by optimally remapping workloads of higher importance to tensor cores and devices with low noise levels.
 ![Salience-aware Sparse Calibration Flow](figures/SparseCaliFlow.png)
 ![Variation-aware Tile Remapping](figures/TileRemap.png)
-![teaser](figures/teaser.png)
+**DOCTOR** guarantees sustained performance under drifting variations with **34%** higher accuracy and **2-3 orders-of-magnitude lower overhead** compared with state-of-the-art on-chip training methods when benchmarked on various models and learning tasks.
+This synergistic framework is the *first* dynamic, in-situ, and training-free solution that ensures *continued reliability* with *minimal overhead* and further enables self-corrected photonic neural accelerators with unprecedented reliability in real-world, dynamic deployment scenarios.
+
 # Dependencies
 * Python >= 3.10
 * pyutils >= 0.0.2. See [pyutils](https://github.com/JeremieMelo/pyutility) for installation.
@@ -25,7 +25,7 @@ This synergistic framework is the *first* dynamic, in-situ and training-free sol
 * core/
     * models/
         * layers/
-            * base_layer: Base layer defination; apply different types of noise
+            * base_layer: Base layer definition; apply different types of noise
             * mrr_conv2d and mrr_linear layers
             * utils.py: Noise schedulers for three types of noise models
         * sparse_bp_\*.py: model definitions
@@ -61,5 +61,4 @@ This synergistic framework is the *first* dynamic, in-situ and training-free sol
   number={},
   pages={1-9}
 }
-
 ```
