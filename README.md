@@ -2,7 +2,7 @@
 
 By [Haotian Lu](https://github.com/TRIGGERONE), Sanmitra Banerjee and [Jiaqi Gu](https://github.com/JeremieMelo).
 
-This repo is the official implementation of "[DOCTOR: Dynamic On-Chip Remediation Against Temporally-Drifting Thermal Variations Toward Self-Corrected Photonic Tensor Accelerators](https://arxiv.org/abs/2403.02688)", IEEE Journal of Lightwave Technology, Jun. 2024.
+This repo is the official implementation of "[DOCTOR: Dynamic On-Chip Temporal Variation Remediation Toward Self-Corrected Photonic Tensor Accelerators](https://arxiv.org/abs/2403.02688)", IEEE Journal of Lightwave Technology, Jun. 2024.
 
 # Introduction
 **DOCTOR** is a lightweight dynamic ONN on-chip remediation framework to provide *adaptive* and *in-situ* accuracy recovery against temporally drifting noises.
